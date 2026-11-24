@@ -1,9 +1,9 @@
-# 周鉦浤 — 個人簡歷網站 (Personal Portfolio)
+# 個人簡歷網站 (Personal Portfolio)
 
 > **Keep it simple, keep it real.**
 
 - **GitHub Pages 線上預覽**：https://zhfju.github.io/personal-resume/
-- **個人主站**：https://zh-web.onrender.com/#home
+- **個人主站**：https://zh-web.onrender.com
 - **聯絡信箱**：fjuzhou@gmail.com
 
 ---
