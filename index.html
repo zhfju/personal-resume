@@ -450,7 +450,144 @@
       max-inline-size: 64ch;
     }
 
-    /* PROJECTS_STYLES_SLOT */
+    /* Editorial Projects Showcase */
+    .ed-projects-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      container: projects / inline-size;
+    }
+
+    .ed-card {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      padding: clamp(18px, 2.5vw, 24px);
+      transition:
+        transform 220ms var(--ease-out-strong),
+        border-color 220ms ease-out,
+        box-shadow 220ms var(--ease-out-strong);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ed-card:hover {
+        transform: translateY(-3px);
+        border-color: #C4C9DC;
+        box-shadow: 0 14px 30px -12px rgba(20, 22, 36, 0.12);
+      }
+    }
+
+    .ed-card-wide {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    @container projects (inline-size > 580px) {
+      .ed-card-wide {
+        grid-template-columns: minmax(280px, 1.1fr) minmax(0, 1fr);
+      }
+    }
+
+    .ed-projects-duo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .ed-card-vertical {
+      grid-row: span 4;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      grid-template-rows: subgrid;
+      gap: 14px;
+    }
+
+    .ed-video-stage {
+      background: #141624;
+      border-radius: 12px;
+      overflow: clip;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(20, 22, 36, 0.08);
+    }
+
+    .ed-video-stage-landscape video {
+      inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+
+    .ed-video-stage-portrait {
+      padding: 12px;
+      background: linear-gradient(180deg, #1A1D2E 0%, #111320 100%);
+    }
+
+    .ed-video-stage-portrait video {
+      inline-size: auto;
+      max-inline-size: 100%;
+      max-block-size: 360px;
+      block-size: auto;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .ed-card-title {
+      margin: 0;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ed-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-inline-size: 0;
+    }
+
+    .ed-card-summary {
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+    }
+
+    .ed-card-role {
+      margin: 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .ed-card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-wrap: balance;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-block-start: 10px;
+      border-block-start: 1px solid var(--rule);
+    }
+
+    .ed-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      flex-wrap: balance;
+      gap: 6px;
+    }
+
+    .ed-card-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+    }
 
     .ed-footer {
       padding-block-start: 28px;
@@ -610,7 +747,101 @@
         </div>
       </section>
 
-      <!-- PROJECTS_SECTION_SLOT -->
+      <section id="projects" tabindex="-1" class="reveal reveal-3">
+        <h2 class="ed-section-title">專案作品集展示</h2>
+        <p class="ed-section-desc">三件獨立發想與開發實作的前端導向頁與行動應用作品，點擊播放器即可直接觀看實機操作流程。</p>
+
+        <div class="ed-projects-wrap">
+          <article class="ed-card ed-card-wide">
+            <div class="ed-video-stage ed-video-stage-landscape">
+              <video
+                controls
+                loading="lazy"
+                playsinline
+                preload="metadata"
+                width="640"
+                height="360"
+                poster="assets/anon-poster.jpg"
+                aria-label="匿名投稿入口前端操作展示影片"
+              >
+                <source src="assets/anon-demo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="ed-card-body">
+              <h3 class="ed-card-title">匿名投稿入口</h3>
+              <p class="ed-card-summary">製作讓用戶能快速前往匿名投稿的入口導向前端網頁。將投稿須知與版規整合於簡潔清晰的卡片動線中，讓使用者閱讀完畢即可一鍵進入投稿流程。</p>
+              <p class="ed-card-role">角色分工：獨立製作（版面設計、前端切版與互動導向實作）</p>
+              <footer class="ed-card-footer">
+                <div class="ed-card-tags">
+                  <span class="ed-card-tag">HTML5</span>
+                  <span class="ed-card-tag">CSS3</span>
+                  <span class="ed-card-tag">前端導向頁</span>
+                </div>
+              </footer>
+            </div>
+          </article>
+
+          <div class="ed-projects-duo">
+            <article class="ed-card ed-card-vertical">
+              <div class="ed-video-stage ed-video-stage-portrait">
+                <video
+                  controls
+                  loading="lazy"
+                  playsinline
+                  preload="metadata"
+                  width="360"
+                  height="742"
+                  poster="assets/shiye-poster.jpg"
+                  aria-label="拾頁 Threads 私人書架完整展示影片"
+                >
+                  <source src="assets/shiye-demo.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3 class="ed-card-title">拾頁</h3>
+              <div class="ed-card-body">
+                <p class="ed-card-summary">成為 Threads 的私人書架。支援從手機系統「外部分享」一鍵將喜歡的串文收進個人書架，並整合圖片 OCR、AI 解析摘要與雲端備份管理功能。</p>
+                <p class="ed-card-role">角色分工：獨立製作（產品規劃、分享匯入串接、AI 解析與介面實作）</p>
+              </div>
+              <footer class="ed-card-footer">
+                <div class="ed-card-tags">
+                  <span class="ed-card-tag">Threads 工具</span>
+                  <span class="ed-card-tag">AI 解析</span>
+                  <span class="ed-card-tag">個人書架</span>
+                </div>
+              </footer>
+            </article>
+
+            <article class="ed-card ed-card-vertical">
+              <div class="ed-video-stage ed-video-stage-portrait">
+                <video
+                  controls
+                  loading="lazy"
+                  playsinline
+                  preload="metadata"
+                  width="360"
+                  height="742"
+                  poster="assets/zc-poster.jpg"
+                  aria-label="ZC 雙人互動趣味 App 展示影片"
+                >
+                  <source src="assets/zc-demo.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3 class="ed-card-title">ZC</h3>
+              <div class="ed-card-body">
+                <p class="ed-card-summary">促進雙方互動的趣味 App。透過雙向連結帳號機制，讓彼此能夠相互發布日常任務、審核完成進度並賺取金幣獎勵，結合商城與金庫系統增添生活樂趣。</p>
+                <p class="ed-card-role">角色分工：獨立製作（任務金幣機制設計、雙向帳號狀態與 App 介面開發）</p>
+              </div>
+              <footer class="ed-card-footer">
+                <div class="ed-card-tags">
+                  <span class="ed-card-tag">雙向互動 App</span>
+                  <span class="ed-card-tag">任務金幣系統</span>
+                  <span class="ed-card-tag">UI 設計</span>
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <footer class="ed-footer">
         <span>© 2026 周鉦浤 (zh_fju) · Keep it simple, keep it real.</span>
@@ -665,7 +896,40 @@
       trackedTargets.forEach((sec) => spy.observe(sec));
     }
 
-    /* EXTRA_SCRIPT_SLOT */
+    // Lazy-load fallback for <video loading="lazy"> in browsers without native HTMLMediaElement.prototype.loading
+    if (!Object.hasOwn(HTMLMediaElement.prototype, 'loading') && 'IntersectionObserver' in window) {
+      const lazyVideos = document.querySelectorAll('video[loading="lazy"]');
+      const mediaObserver = new IntersectionObserver((entries, obs) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const media = entry.target;
+          if (media.dataset.poster) {
+            media.poster = media.dataset.poster;
+            delete media.dataset.poster;
+          }
+          if (media.dataset.preload) {
+            media.preload = media.dataset.preload;
+            delete media.dataset.preload;
+          }
+          media.load();
+          obs.unobserve(media);
+        }
+      }, { rootMargin: '200px 0px' });
+
+      for (const media of lazyVideos) {
+        if (media.hasAttribute('poster')) {
+          media.dataset.poster = media.getAttribute('poster');
+          media.removeAttribute('poster');
+        }
+        if (media.hasAttribute('preload') && media.getAttribute('preload') !== 'none') {
+          media.dataset.preload = media.getAttribute('preload');
+        }
+        media.preload = 'none';
+        mediaObserver.observe(media);
+      }
+    }
+
+    /* SKILLS_SCRIPT_SLOT */
   </script>
 </body>
 </html>
