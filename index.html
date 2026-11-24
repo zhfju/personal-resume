@@ -376,7 +376,79 @@
 
     /* SKILLS_STYLES_SLOT */
 
-    /* TIMELINE_STYLES_SLOT */
+    /* Editorial Timeline */
+    .ed-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      border-inline-start: 2px solid var(--rule);
+      padding-inline-start: 26px;
+      margin-inline-start: 6px;
+    }
+
+    .ed-tl-item {
+      position: relative;
+    }
+
+    .ed-tl-item::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: -33px;
+      top: 7px;
+      inline-size: 12px;
+      block-size: 12px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2.5px solid var(--accent);
+      transition: transform 180ms var(--ease-out-strong), background-color 180ms ease-out;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ed-tl-item:hover::before {
+        transform: scale(1.22);
+        background: var(--accent);
+      }
+    }
+
+    .ed-tl-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-block-end: 6px;
+    }
+
+    .ed-tl-period {
+      font-family: var(--font-mono);
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ed-tl-stage {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 5px;
+      background: var(--surface-subtle);
+      color: var(--ink-secondary);
+    }
+
+    .ed-tl-title {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ed-tl-desc {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--ink-secondary);
+      max-inline-size: 64ch;
+    }
 
     /* PROJECTS_STYLES_SLOT */
 
@@ -505,7 +577,38 @@
 
       <!-- SKILLS_SECTION_SLOT -->
 
-      <!-- TIMELINE_SECTION_SLOT -->
+      <section id="timeline" tabindex="-1" class="reveal reveal-2">
+        <h2 class="ed-section-title">學習與經歷時間軸</h2>
+        <p class="ed-section-desc">從國中創客硬體啟蒙、高中前端與程式社團，到大學醫資系專題開發的學習歷程。</p>
+        <div class="ed-timeline">
+          <article class="ed-tl-item">
+            <div class="ed-tl-meta">
+              <span class="ed-tl-period">2026 – 現在</span>
+              <span class="ed-tl-stage">大一時期｜醫資系</span>
+            </div>
+            <h3 class="ed-tl-title">系上 Java 課程修習與「網站安全設定分析工具」專題製作</h3>
+            <p class="ed-tl-desc">進入醫學資訊學程系統化學習 Java 程式設計，並投入系上專題開發網站安全設定分析工具，檢視常見網頁資安組態與防護風險。</p>
+          </article>
+
+          <article class="ed-tl-item">
+            <div class="ed-tl-meta">
+              <span class="ed-tl-period">2023 – 2026</span>
+              <span class="ed-tl-stage">高中時期｜社團與自學</span>
+            </div>
+            <h3 class="ed-tl-title">接觸前端介面設計・參與程式社學習 Java 與羽球社</h3>
+            <p class="ed-tl-desc">開始摸索 HTML / CSS 前端視覺與網頁互動設計；參加學校程式社團打下 Java 語法基礎，課餘固定參與羽球社鍛鍊體能與球技。</p>
+          </article>
+
+          <article class="ed-tl-item">
+            <div class="ed-tl-meta">
+              <span class="ed-tl-period">2020 – 2023</span>
+              <span class="ed-tl-stage">國中時期｜程式社啟蒙</span>
+            </div>
+            <h3 class="ed-tl-title">學校程式設計社團：Arduino、micro:bit 與 3D 列印建模</h3>
+            <p class="ed-tl-desc">參加國中程式設計社團，實作 Arduino 與 micro:bit 微控制器感測互動裝置，並學習 3D 數位建模與 3D 列印將設計轉為實體作品。</p>
+          </article>
+        </div>
+      </section>
 
       <!-- PROJECTS_SECTION_SLOT -->
 
