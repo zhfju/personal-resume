@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>周鉦浤｜個人簡歷 Portfolio</title>
+  <meta name="description" content="周鉦浤（醫資一）個人簡歷網站 — Keep it simple, keep it real. 呈現前端與軟體開發技能、學習時間軸與獨立製作專案作品集。">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F7FA;
+      --surface: #FFFFFF;
+      --surface-subtle: #F0F1F6;
+      --ink: #141624;
+      --ink-secondary: #373B4E;
+      --muted: #5A6075;
+      --rule: #DFE2EC;
+      --accent: #3B389C;
+      --accent-hover: #2E2B82;
+      --accent-soft: #ECEBFF;
+      --font-serif: "Newsreader", "Noto Serif TC", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow-x: clip;
+      -webkit-text-size-adjust: 100%;
+      scrollbar-gutter: stable;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+
+    body {
+      margin: 0;
+      overflow-x: clip;
+      min-block-size: 100dvh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    img, svg, video {
+      display: block;
+      max-inline-size: 100%;
+    }
+
+    section[id], aside[id] {
+      scroll-margin-block-start: 84px;
+    }
+
+    section[id]:focus, aside[id]:focus {
+      outline: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: clip;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: editorialEnter 280ms var(--ease-out-strong) both;
+      }
+      .reveal-1 { animation-delay: 45ms; }
+      .reveal-2 { animation-delay: 90ms; }
+      .reveal-3 { animation-delay: 135ms; }
+
+      @keyframes editorialEnter {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    /* Mobile top sticky navigation */
+    .mobile-nav {
+      display: none;
+    }
+
+    /* Editorial two-column shell */
+    .ed-shell {
+      max-inline-size: 1160px;
+      margin-inline: auto;
+      padding-inline: clamp(20px, 4vw, 48px);
+      padding-block: clamp(32px, 5vw, 68px) 88px;
+      display: grid;
+      grid-template-columns: minmax(260px, 310px) minmax(0, 1fr);
+      gap: clamp(36px, 6vw, 80px);
+      align-items: start;
+    }
+
+    /* Left pinned masthead */
+    .ed-masthead {
+      position: sticky;
+      top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-inline-end: 26px;
+      border-inline-end: 1px solid var(--rule);
+    }
+
+    .ed-identity {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .ed-avatar {
+      inline-size: 78px;
+      block-size: 78px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid var(--rule);
+      box-shadow: 0 6px 18px -6px rgba(20, 22, 36, 0.16);
+      flex-shrink: 0;
+    }
+
+    .ed-name {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 1.45rem + 0.9vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .ed-dept {
+      margin: 4px 0 0;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .ed-motto-inline {
+      margin: 0;
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      max-inline-size: 36ch;
+    }
+
+    .ed-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-block: 14px;
+      border-block: 1px solid var(--rule);
+      scroll-target-group: auto;
+    }
+
+    .ed-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 11px;
+      border-radius: 8px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition:
+        color 160ms var(--ease-out-strong),
+        background-color 160ms var(--ease-out-strong),
+        transform 150ms var(--ease-out-strong);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ed-nav a:hover {
+        color: var(--ink);
+        background: rgba(59, 56, 156, 0.05);
+      }
+    }
+
+    .ed-nav a:active {
+      transform: scale(0.98);
+    }
+
+    .ed-nav a:is(:target-current, .target-current) {
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    .ed-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ed-contacts-heading {
+      margin: 0;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .ed-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      background: none;
+      border: 0;
+      padding: 3px 0;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: start;
+      min-inline-size: 0;
+      overflow-wrap: anywhere;
+      transition: color 150ms ease-out, transform 150ms var(--ease-out-strong);
+    }
+
+    .ed-contact-item svg {
+      inline-size: 16px;
+      block-size: 16px;
+      flex-shrink: 0;
+      color: var(--muted);
+      transition: color 150ms ease-out;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ed-contact-item:hover {
+        color: var(--accent);
+      }
+      .ed-contact-item:hover svg {
+        color: var(--accent);
+      }
+    }
+
+    .ed-contact-item:active {
+      transform: scale(0.97);
+    }
+
+    .ed-badge {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Right narrative column */
+    .ed-main {
+      display: flex;
+      flex-direction: column;
+      gap: 68px;
+      min-inline-size: 0;
+    }
+
+    .ed-hero {
+      padding-block-end: 42px;
+      border-block-end: 1px solid var(--rule);
+    }
+
+    .ed-headline {
+      margin: 0 0 14px;
+      font-family: var(--font-serif);
+      font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.35rem);
+      font-weight: 600;
+      line-height: 1.14;
+      letter-spacing: -0.025em;
+      overflow-wrap: break-word;
+    }
+
+    .ed-lead {
+      margin: 0 0 26px;
+      font-size: 1.04rem;
+      color: var(--ink-secondary);
+      max-inline-size: 62ch;
+    }
+
+    .ed-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ed-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition:
+        transform 160ms var(--ease-out-strong),
+        background-color 160ms ease-out,
+        border-color 160ms ease-out,
+        color 160ms ease-out;
+    }
+
+    .ed-btn:active {
+      transform: scale(0.97);
+    }
+
+    .ed-btn-primary {
+      background: var(--ink);
+      color: #FFFFFF;
+      border: 1px solid var(--ink);
+    }
+
+    .ed-btn-secondary {
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ed-btn-primary:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .ed-btn-secondary:hover {
+        border-color: var(--ink-secondary);
+      }
+    }
+
+    .ed-section-title {
+      margin: 0 0 8px;
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+    }
+
+    .ed-section-desc {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-inline-size: 62ch;
+    }
+
+    /* SKILLS_STYLES_SLOT */
+
+    /* TIMELINE_STYLES_SLOT */
+
+    /* PROJECTS_STYLES_SLOT */
+
+    .ed-footer {
+      padding-block-start: 28px;
+      border-block-start: 1px solid var(--rule);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    /* Responsive (< 880px & < 600px mobile) */
+    @media (max-width: 880px) {
+      .mobile-nav {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        display: flex;
+        flex-wrap: wrap;
+        flex-wrap: balance;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 14px;
+        background: rgba(247, 247, 250, 0.92);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border-block-end: 1px solid var(--rule);
+        scroll-target-group: auto;
+      }
+
+      .mobile-nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+
+      .mobile-nav a:is(:target-current, .target-current) {
+        color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .ed-shell {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-block-start: 24px;
+      }
+
+      .ed-masthead {
+        position: static;
+        padding-inline-end: 0;
+        padding-block-end: 24px;
+        border-inline-end: 0;
+        border-block-end: 1px solid var(--rule);
+      }
+
+      .ed-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="mobile-nav" aria-label="行動版章節導覽">
+    <a href="#about">關於我</a>
+    <a href="#skills">技能展示</a>
+    <a href="#timeline">學習經歷</a>
+    <a href="#projects">作品集</a>
+    <a href="#contact">聯絡方式</a>
+  </nav>
+
+  <div class="ed-shell">
+    <aside class="ed-masthead reveal">
+      <div class="ed-identity">
+        <img class="ed-avatar" src="assets/avatar.jpg" width="78" height="78" alt="周鉦浤個人頭像">
+        <div>
+          <h1 class="ed-name">周鉦浤</h1>
+          <p class="ed-dept">醫資一</p>
+        </div>
+      </div>
+
+      <p class="ed-motto-inline">喜歡從日常真實需求出發，用單純直覺的技術把想法落地成順手好用的工具與應用。</p>
+
+      <nav class="ed-nav" aria-label="頁面章節導覽">
+        <a href="#about">關於我</a>
+        <a href="#skills">技能展示</a>
+        <a href="#timeline">經歷時間軸</a>
+        <a href="#projects">專案作品集</a>
+        <a href="#contact">聯絡方式</a>
+      </nav>
+
+      <div class="ed-contacts" id="contact" tabindex="-1">
+        <p class="ed-contacts-heading">聯絡與連結</p>
+        <button type="button" class="ed-contact-item" data-copy-email="fjuzhou@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <span>fjuzhou@gmail.com</span>
+          <span class="ed-badge" data-copy-badge>複製</span>
+        </button>
+        <a class="ed-contact-item" href="https://zh-web.onrender.com/#home" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>個人網站 zh-web.onrender.com</span>
+        </a>
+        <a class="ed-contact-item" href="https://github.com/zhfju" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          <span>github.com/zhfju</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="ed-main">
+      <section id="about" tabindex="-1" class="ed-hero reveal reveal-1">
+        <h2 class="ed-headline">Keep it simple, keep it real.</h2>
+        <p class="ed-lead">我是周鉦浤，目前就讀醫學資訊一。從國中接觸微控制器與 3D 建模、高中自學前端切版與 Java，到大學投入網站安全分析專題與獨立產品開發，持續把貼近日常的點子寫成真實運作的作品。</p>
+        <div class="ed-hero-actions">
+          <a class="ed-btn ed-btn-primary" href="#projects">瀏覽獨立製作作品</a>
+          <a class="ed-btn ed-btn-secondary" href="https://zh-web.onrender.com/#home" target="_blank" rel="noopener">前往個人主站</a>
+          <a class="ed-btn ed-btn-secondary" href="mailto:fjuzhou@gmail.com">寄送 Email</a>
+        </div>
+      </section>
+
+      <!-- SKILLS_SECTION_SLOT -->
+
+      <!-- TIMELINE_SECTION_SLOT -->
+
+      <!-- PROJECTS_SECTION_SLOT -->
+
+      <footer class="ed-footer">
+        <span>© 2026 周鉦浤 (zh_fju) · Keep it simple, keep it real.</span>
+        <span>部署於 GitHub Pages</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Copy email button feedback
+    document.querySelectorAll('[data-copy-email]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const email = btn.getAttribute('data-copy-email');
+        const badge = btn.querySelector('[data-copy-badge]');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).catch(() => {});
+        }
+        if (badge) {
+          const prev = badge.textContent;
+          badge.textContent = '已複製';
+          setTimeout(() => { badge.textContent = prev; }, 1800);
+        }
+      });
+    });
+
+    // Scrollspy fallback for browsers without native CSS scroll-target-group
+    const supportsScrollTargetGroup = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('scroll-target-group: auto');
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const trackedTargets = [...document.querySelectorAll('main section[id], aside [id="contact"]')];
+
+    if (supportsScrollTargetGroup) {
+      const syncAria = () => {
+        navLinks.forEach((link) => {
+          link.setAttribute('aria-current', link.matches(':target-current') ? 'true' : 'false');
+        });
+      };
+      syncAria();
+      document.addEventListener('scrollend', syncAria, { passive: true });
+    } else if ('IntersectionObserver' in window && trackedTargets.length) {
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+              const match = link.getAttribute('href') === `#${id}`;
+              link.classList.toggle('target-current', match);
+              link.setAttribute('aria-current', match ? 'true' : 'false');
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+      trackedTargets.forEach((sec) => spy.observe(sec));
+    }
+
+    /* EXTRA_SCRIPT_SLOT */
+  </script>
+</body>
+</html>
